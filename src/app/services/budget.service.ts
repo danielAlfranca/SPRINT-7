@@ -88,6 +88,8 @@ public saveBudget(budget:Budget){
 
   if(!budget.id) budget.id = this.budgets.length + 1 ;
 
+  budget.date = budget.date || new Date().getTime();
+
   this.budgets[Number(budget.id)-1] = budget
 
   this.setURLFromBudget({...defaultDataBudget});

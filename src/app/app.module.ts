@@ -17,6 +17,7 @@ import { FormCreatorComponent } from './components/form-creator/form-creator.com
 import { FormInputComponent } from './components/form-creator/form-input/form-input.component';
 import { BudgetFieldsComponent } from './components/budget-fields/budget-fields.component';
 import { BudgetTotalPipe } from './pipes/budget-total.pipe';
+import { PanelFilterComponent } from './components/panel-filter/panel-filter.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { BudgetTotalPipe } from './pipes/budget-total.pipe';
     FormInputComponent,
     BudgetFieldsComponent,
     BudgetTotalPipe,
+    PanelFilterComponent,
 
   ],
   imports: [

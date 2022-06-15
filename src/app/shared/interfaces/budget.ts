@@ -4,7 +4,8 @@ export interface Budget {
   name:string; 
   client:string; 
   currency:string; 
-  fields:Field[]; 
+  fields:Field[];
+  date?:number; 
 }
 
 export interface Field {
