@@ -1,0 +1,35 @@
+<section class="d-flex vh-100 align-items-stretch justify-content-center">
+
+
+    <div class="p-3 text-center bg-light shadow rounded-3 w-100 form-container">
+        <ng-container *ngIf="formFields else loading">
+            <h4> ¿ Qué quieres hacer ? </h4>
+            <hr>
+            <app-form-creator [formFields]="formFields" (formChange)="updateURLParameters($event.model)" #form></app-form-creator>
+            <hr>
+            <h4>Precio Total: {{ budget | TOTAL_PRICE }}</h4>
+            <hr>
+            <div class="d-flex justify-content-between py-3 ">
+                <button class="btn btn-outline-secondary " (click)="reset()"> reset</button>
+                <button class="btn btn-primary" (click)="saveBudget()" [disabled]="!form.status.model.valid">
+                        Guardar presupuesto
+                    </button>
+
+
+
+            </div>
+        </ng-container>
+    </div>
+    <app-budgets-list (onSelected)="selectBudget($event)"></app-budgets-list>
+
+</section>
+
+
+<ng-template let-input #budgetFieldsTemplate>
+    <app-budget-fields [value]="input.value" (valueChange)="input.changeValue($event)"></app-budget-fields>
+</ng-template>
+
+<ng-template #loading>
+    <div class="spinner-border text-primary fs-3" role="status"></div>
+    <h1 class="text-center mt-4">Guardando...</h1>
+</ng-template>

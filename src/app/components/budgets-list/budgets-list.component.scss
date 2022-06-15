@@ -1,0 +1,14 @@
+.budgets-container {
+    z-index: 2;
+    position: relative;
+    padding: 0 1rem 1rem 1rem;
+    border-top: none;
+}
+
+h5 {
+    text-transform: uppercase;
+}
+
+.list-group-item {
+    cursor: pointer;
+}

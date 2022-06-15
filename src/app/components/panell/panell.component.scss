@@ -1,0 +1,28 @@
+form {
+    //max-width: 20rem;
+    animation: formAnimation 0.5s;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+svg {
+    fill: rgb(27, 79, 135);
+    cursor: pointer;
+}
+
+button {
+    width: 2.5rem;
+}
+
+input {
+    max-width: 5rem;
+}
+
+@keyframes formAnimation {
+    0% {
+        scale: 0 0;
+    }
+    100% {
+        scale: 1 1;
+    }
+}

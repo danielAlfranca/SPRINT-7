@@ -1,0 +1,30 @@
+section {
+    position: relative;
+    padding: 10vh 5vw;
+}
+
+section:after {
+    position: absolute;
+    background-image: url('https://picsum.photos/1920/1080');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: grayscale(50%) hue-rotate(180deg) sepia(80%) blur(0.2rem);
+    top: 0;
+    left: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+}
+
+div {
+    max-width: 500px;
+    transition: scale 0.5s;
+    position: relative;
+    z-index: 2;
+    max-height: 90vh;
+}
+
+.form-container {
+    overflow: auto;
+}

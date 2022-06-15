@@ -1,0 +1,14 @@
+section {
+    background-image: url('https://picsum.photos/1920/1080');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div {
+    max-width: 600px;
+    background-color: white;
+    border-radius: 3rem;
+    margin: auto;
+    box-sizing: border-box;
+}

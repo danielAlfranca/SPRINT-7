@@ -1,0 +1,9 @@
+<div class="form-group mb-3" *ngFor="let field of value; let i = index">
+    <div class="form-check">
+        <label [for]="field.name+'ID'" class="form-check-label mb-3">{{field.title}}</label>
+        <input class="form-check-input" type="checkbox" [checked]="field.quantity && true" [id]="field.name+'ID'" (change)="update(!field.quantity ? 1:0, i)">
+    </div>
+    <ng-container *ngIf="field.extras && field.extras.length && field.quantity">
+        <app-panell [(value)]="field.extras" (valueChange)="update(field.quantity,i)"></app-panell>
+    </ng-container>
+</div>

@@ -1,0 +1,23 @@
+<ng-container *ngIf="selectedInputTemplate">
+    <ng-container *ngTemplateOutlet="selectedInputTemplate; context:{$implicit:this}"></ng-container>
+    <div class="invalid-feedback d-block mt-3" *ngIf="!status.valid && status.touched">
+        <em> {{ status.errors }} </em>
+    </div>
+</ng-container>
+
+
+<ng-template #textNumber>
+    <label *ngIf="config.label" [for]="config.name+'ID'" class="mb-3">{{config.label}}</label>
+    <input [type]="config.type" [name]="config.name" [id]="config.name+'ID'" (input)="changeValue($event)" [value]="value" [placeholder]="placeholder" class="form-control">
+</ng-template>
+
+<ng-template #hidden>
+    <input type="hidden" [name]="config.name" [value]="value">
+</ng-template>
+
+<ng-template #checkbox>
+    <div class="form-check">
+        <label *ngIf="config.label" [for]="config.name+'ID'" class="form-check-label mb-3" [for]="config.name+'ID'">{{config.label}}</label>
+        <input class="form-check-input" type="checkbox" [value]="value" [id]="config.name+'ID'" (change)="changeValue($event)">
+    </div>
+</ng-template>

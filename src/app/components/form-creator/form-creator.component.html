@@ -1,0 +1,8 @@
+<div [formGroup]="model" class="row">
+    <div *ngFor="let field of formFields" class="col-{{field.columns||12}}">
+        <div app-form-input [config]="field" [status]="status.fields[field.name]" [formControlName]="field.name" class="form-group mb-3" [hidden]="field.type=='hidden'"></div>
+    </div>
+    <div *ngIf="status.model.errors">
+        {{status.model.errors}}
+    </div>
+</div>
