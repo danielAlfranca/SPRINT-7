@@ -31,7 +31,6 @@ export class PanelFilterComponent {
 
     this.sortType = type;
 
-
     if(this.sortType=='alfabeticamente') this.budgets.sort(this.albabeticamente)
 
     if(this.sortType=='porFecha') this.budgets.sort(this.porFecha)
@@ -42,12 +41,13 @@ export class PanelFilterComponent {
 
   private albabeticamente(a:any,b:any){
 
-    return a.budget.name > b.budget.name ? 1:0
+
+    return a.budget?.name > b.budget?.name ? 1:0
   }
 
   private porFecha(a:any,b:any){
 
-    return (a.budget.date || 0) - (b.budget.date || 0)
+    return (a.budget?.date || 0) - (b.budget?.date || 0)
   }
 
 }

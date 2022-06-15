@@ -16,6 +16,8 @@ export class BudgetService {
 
   public get budgetUpdates(){
 
+    this.budgets = []; // EN CASO DE REFRESH SE LIMPIAN TODOS LOS BUDGETS CUANDO SE INSTANCIA DE NUEVO EL COMPONENTE     
+
     return this._budgetUpdates as Observable<Budget>;
   }
 
@@ -74,7 +76,9 @@ private getBudgetFromURL(url:string):Budget{
 
 private encodeBudgetURLParameter(budget:Budget){
 
-  return encodeURIComponent(JSON.stringify(budget))
+  ///return encodeURIComponent(JSON.stringify(budget))
+
+  return JSON.stringify(budget) // <-------------------- AQUI ESTABA EL FALLO
 }
 
 public getBudgets(){   return [...this.budgets].map(budget=>({
