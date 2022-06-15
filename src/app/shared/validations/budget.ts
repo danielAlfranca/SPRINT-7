@@ -2,7 +2,19 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 import { Field } from "../interfaces/budget";
 
 
+export const allExtrasHaveValue: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
 
+
+    const fields = control.value, valid = fields.every((field:Field)=>{
+  
+            return !field.extras || !field.extras?.length || field.extras?.every(extra=>extra.quantity);
+  
+          });
+
+    return  !valid ? { message: 'Algunos extras no tienen valor' } : null;
+  
+};
+  
 export const AtLeastOneService: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   
     const fields = control.value || [],
@@ -12,10 +24,3 @@ export const AtLeastOneService: ValidatorFn = (control: AbstractControl): Valida
   
 };
 
-export const allExtrasHaveValue: Function = (extras: Field[]): boolean => {
-
-
-    return extras.every((field:Field)=>field.quantity);
-      
-};
-  

@@ -44,12 +44,8 @@ export class PanellComponent {
   modalRef?: BsModalRef;
   modalText="";
 
-  touched = false
 
-  get allHasvalue(){
 
-    return allExtrasHaveValue(this.value||[])
-  }
 
   constructor(private modalService: BsModalService) { }
 
@@ -59,8 +55,6 @@ export class PanellComponent {
 
     field.quantity = value + (Number(add) ||  ( !value ? 0: -1 ));
 
-    this.touched = true;
-  
     this.valueChange.emit(fields);
   }
 

@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BudgetService } from 'src/app/services/budget.service';
 import { Budget, defaultDataBudget, Field } from 'src/app/shared/interfaces/budget';
 import { FormField} from 'src/app/shared/interfaces/form';
-import {AtLeastOneService } from 'src/app/shared/validations/budget';
+import {allExtrasHaveValue, AtLeastOneService } from 'src/app/shared/validations/budget';
 
 @Component({
   selector: 'app-home',
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit{
         value:budget.name,
         required:true,
         type:'text',
-        error: 'El presupuesto debe tener un nombre'
+
       },
       {
         name:'client',
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit{
         value:budget.client,
         required:true,
         type:'text',
-        error: 'El presupuesto debe tener un cliente asociado' 
+
       },
       {
         name:'currency',
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit{
         value:budget.fields,
         required:true,
         type:'custom',
-        validations:[ AtLeastOneService],
+        validations:[ allExtrasHaveValue, AtLeastOneService],
         template:this.budgetFieldsTemplate,
       }, 
     ]
